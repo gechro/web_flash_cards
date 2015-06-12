@@ -1,3 +1,6 @@
 class Deck < ActiveRecord::Base
-  # Remember to create a migration!
+  has_many :rounds
+  has_many :cards
+  belongs_to :category
+  belongs_to :creator, through: :rounds, source: :user
 end
