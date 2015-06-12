@@ -1,8 +1,5 @@
 get '/'
-  #erb :index
+  erb :index
 end
 
-post '/'
-   #authenticate
-end 
 
