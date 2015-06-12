@@ -3,6 +3,6 @@
 	<label for="flashcard answer"> Your Answer: </label>
 	<input type="text" name="correct" value="answer here"/>
     <input type="submit" value="submit"/>
-    <input type="hidden" value="#{<%=@card.answer %>}"
+    <input type="hidden" name="#{<%=@card.answer %>}" value="#{<%=@card.answer %>}"
 </form>
 
