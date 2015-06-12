@@ -14,14 +14,22 @@ get '/decks/:id/play' do
 
   if deck.cards.size > session['number']
 	  @card = deck.cards[session['number']]
-	  session['number'] += 1
-	  erb :'decks/show'
+    erb :'decks/show'
   end
 
 end
 
 post '/decks/:id/play' do
   binding.pry
-  p params
+  deck = Deck.find(params[:id])
+  card = deck.cards[session['number']]
+	session['number'] += 1
+  if card.question == params[:correct]
+    card.correct = true
+    @correct = true
+    erb :show_correct
+  else
+    card.correct = false
+  end
 
 end
