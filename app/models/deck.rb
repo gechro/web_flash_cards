@@ -1,6 +1,6 @@
 class Deck < ActiveRecord::Base
-  has_many :rounds
-  has_many :cards
-  belongs_to :category
-  belongs_to :creator, through: :rounds, source: :user
+  has_many :rounds # checked
+  has_many :cards # checked
+  belongs_to :category # checked
+  belongs_to :creator, class_name: "User" # checked
 end
