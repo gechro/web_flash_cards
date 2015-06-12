@@ -1,5 +1,5 @@
-get '/decks/:id/play'
+get '/decks/:id/play' do
   deck = Deck.find(params[:id])
-  if deck == true
-
+  @card = deck.card.first
+    erb :"decks/show"
 end
