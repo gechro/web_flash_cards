@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>  <%= @user.name  %></h1>
+
+  <table>
+    <th colspan="3">Decks Created</th>
+  </table>
+
+  <form action="/decks/new" method="get">
+    <input class="button"type="submit" value="create new deck">
+  </form>
+
+
+  <table>
+    <th colspan="3">Decks Played</th>
+  </table>
+  <form  action="/categories" method="get">
+    <input class="button"type="submit" value="view more decks">
+  </form>
+</div>
