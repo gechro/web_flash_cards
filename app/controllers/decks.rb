@@ -3,10 +3,17 @@ enable :sessions
 
 
 get '/decks/:id/start' do
+  deck = Deck.find_by(id: params[:id])
 	session['number'] = 0
-  redirect "/decks/#{params[:id]}/play"
+  erb :''s
+  redirect "/decks/#{deck.id}/play"
 end
 
+post '/decks/:id/start' do
+  deck = Deck.find_by(id: params[:id])
+  session['number'] = 0
+  redirect "/decks/#{deck.id}/play"
+end
 
 get '/decks/:id/play' do
 
@@ -20,7 +27,6 @@ get '/decks/:id/play' do
 end
 
 post '/decks/:id/play' do
-  binding.pry
   deck = Deck.find(params[:id])
   card = deck.cards[session['number']]
 	session['number'] += 1
