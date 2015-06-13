@@ -1,6 +1,6 @@
 <div class="container">
-  <p>Hello from decks</p>
+  <h1><%= @category.name %> Decks</h1>
   <% @decks.each do |deck| %>
-    <%= deck.name %><br />
+    <a href="/decks/<%= deck.id %>"><%= deck.name %><a/><br />
   <% end %>
 </div>

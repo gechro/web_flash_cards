@@ -5,7 +5,8 @@ get "/categories" do
 end
 
 get "/categories/:id" do
-  p @decks = Category.find(params[:id]).decks
+  @category = Category.find(params[:id])
+  @decks = @category.decks
 
   erb :"/categories/show"
 end
