@@ -1,0 +1,6 @@
+<div class="container">
+  <p>Hello from categories</p>
+  <% @categories.each do |category| %>
+    <a href="/categories/<%= category.id %>"><%= category.name %></a><br />
+  <% end %>
+</div>
