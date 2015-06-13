@@ -1,6 +1,6 @@
 <div class="container">
-  <h1><%= @category.name %> Decks</h1>
+  <h1><%= @category.name.capitalize %> Decks</h1>
   <% @decks.each do |deck| %>
-    <a href="/decks/<%= deck.id %>"><%= deck.name %><a/><br />
+    <a href="/decks/<%= deck.id %>"><%= deck.name.capitalize %><a/><br />
   <% end %>
 </div>

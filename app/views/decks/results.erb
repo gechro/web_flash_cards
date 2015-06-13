@@ -1,0 +1,11 @@
+<div class="container">
+<h1>Round Results</h1>
+  <p>You got <%= @correct_answers_count %> question(s) right.</p>
+  <p>You got these question(s) wrong:</p>
+    <% if !@wrong_answers.empty? %>
+      <% @wrong_answers.each do |wrong_answer| %>
+        <div><%= wrong_answer.card.question %></div>
+        <div><%= wrong_answer.card.answer %></div>
+      <% end %>
+    <% end %>
+</div>
