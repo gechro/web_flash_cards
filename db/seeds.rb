@@ -1,14 +1,14 @@
 #users
 
-users = [
-{email: 'gigi@hotmail.com', name: "Giovanna", password: "1234"},
-{email: 'jfizi@hotmail.com', name: "Joseph", password: "1234"},
-{email: 'jojo@hotmail.com', name: "Jordan", password: "1234"},
-{email: 'sheldor@hotmail.com', name: "Sheldon", password: "1234"} 
+# users = [
+# {email: 'gigi@hotmail.com', name: "Giovanna", password: "1234"},
+# {email: 'jfizi@hotmail.com', name: "Joseph", password: "1234"},
+# {email: 'jojo@hotmail.com', name: "Jordan", password: "1234"},
+# {email: 'sheldor@hotmail.com', name: "Sheldon", password: "1234"}
 
-]
+# ]
 
-users.each {|user| User.create(user)}
+# users.each {|user| User.create(user)}
 
 
 

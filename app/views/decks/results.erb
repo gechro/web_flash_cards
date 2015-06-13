@@ -1,0 +1,9 @@
+<div class="container">
+<h1>Round Results</h1>
+  <p>You got <%= @correct_answers_count %> question(s) right.</p>
+  <p>You got these question(s) wrong:</p>
+    <% @wrong_answers.each do |wrong_answer| %>
+      <div><%= wrong_answer.question %></div>
+      <div><%= wrong_answer.answer %></div>
+    <% end %>
+</div>
