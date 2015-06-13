@@ -1,6 +1,4 @@
-
 enable :sessions
-
 
 get '/decks/:id' do
   @deck = Deck.find_by(id: params[:id])
@@ -18,32 +16,24 @@ end
 
 get '/decks/:id/play' do
   deck = Deck.find(params[:id])
-  @round = Round.find(session[:round_id])
-  @correct_answers_count = @round.guesses.where(correct: true).count
-  @wrong_answers = @round.guesses.where(correct: false)
-  # binding.pry
 
   if deck.cards.size > session[:deck_index]
-	  @card = deck.cards[session[:deck_index]]
+    @card = deck.cards[session[:deck_index]]
     erb :'decks/show', locals: {deck: deck}
   else
+    @round = Round.find(session[:round_id])
+    @correct_answers_count = @round.guesses.where(correct: true).count
+    @wrong_answers = @round.guesses.where(correct: false)
     erb :'decks/results'
   end
-
 end
 
 post '/decks/:id/play' do
   @deck = Deck.find(params[:id])
   card = @deck.cards[session[:deck_index]]
 	session[:deck_index] += 1
-  if card.answer == params[:answer]
-    add_guess(true,card)
-    @correct = "correct"
-    erb :'decks/show_result'
-  else
-    add_guess(false,card)
-    @correct = "incorrect"
-    @answer = card.answer
-    erb :'decks/show_result'
-  end
+
+  add_guess(card.answer == params[:answer],card)
+  @correct = "#{card.answer == params[:answer]}"
+  erb :'decks/show_result'
 end

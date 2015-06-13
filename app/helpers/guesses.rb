@@ -1,6 +1,3 @@
 def add_guess(status,card)
-  guess = Guess.create(correct: status)
-  guess.card = card
-  guess.round = Round.find(session[:round_id])
-  binding.pry
+  guess = Guess.create(round_id: session[:round_id] ,correct: status, card_id: card.id)
 end
