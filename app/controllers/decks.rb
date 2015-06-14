@@ -1,3 +1,4 @@
+
 enable :sessions
 
 get '/decks/:id' do
@@ -37,3 +38,5 @@ post '/decks/:id/play' do
   @correct = "#{card.answer == params[:answer]}"
   erb :'decks/show_result'
 end
+
+
