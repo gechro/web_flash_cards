@@ -3,14 +3,14 @@ enable :sessions
 get '/decks/:id' do
   @deck = Deck.find_by(id: params[:id])
 	session[:deck_index] = 0
-  round = Round.create(player_id: session[:user_id],deck_id: @deck.id)
-  session[:round_id] = round.id
   erb :'decks/index'
 end
 
 post '/decks/:id' do
   deck = Deck.find_by(id: params[:id])
+  round = Round.create(player_id: session[:user_id],deck_id: deck.id)
   session[:deck_index] = 0
+  session[:round_id] = round.id
   redirect "/decks/#{deck.id}/play"
 end
 

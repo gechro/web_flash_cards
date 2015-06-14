@@ -1,5 +1,5 @@
 get '/users/:id' do
-  @user = User.find(params[:id])
+  @user = User.find(session[:user_id])
   erb :'users/profile'
 end
 
