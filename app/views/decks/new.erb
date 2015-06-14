@@ -1,0 +1,17 @@
+<div class="container">
+  <h1> Create a New Deck</h1>
+  <p>To create a deck, fill out all fields below. You can have a maximum of 10 cards per deck. For more cards sign up for a <a href="/link_to_geos_paypal">premium account</a>.</p>
+  <form  action="/decks/new" method="post">
+    <input class="field" type="text" name="deck" value="" placeholder="Deck Title">
+    <input class="button"type="submit" value="create">
+  </form>
+
+  <footer><h5><a href="/users/1">back to profile</a></h5></footer>
+</div>
+
+ <!--
+  # @created = Deck.where(creator_id: @user.id)
+ # @played = Round.where(player_id: @user.id)
+
+ # Guess.where(round_id: )
+ -->

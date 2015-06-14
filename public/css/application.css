@@ -47,3 +47,15 @@ th {
   margin: 20px auto;
   display: block;
 }
+
+.field {
+  color: ##6699ff;
+  border: 2px solid #6699ff;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+p {
+  margin: 10px;
+
+}

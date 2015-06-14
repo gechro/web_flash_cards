@@ -9,3 +9,5 @@ class CreateDecks < ActiveRecord::Migration
     end
   end
 end
+
+
