@@ -14,7 +14,22 @@ require 'capybara'
 require 'capybara/rspec'
 
 RSpec.configure do |config|
+  require 'database_cleaner'
   config.include Rack::Test::Methods
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:all) do
+  DatabaseCleaner.start
+  end
+
+  config.after(:all) do
+    DatabaseCleaner.clean
+  end
+
 end
 
 def app
