@@ -64,3 +64,12 @@ td {
   padding: 1px;
   border-bottom: 1px solid black;
 }
+
+.container form {
+    width:50%;
+    margin:0 auto;
+}
+
+#new {
+  text-align:center;
+}

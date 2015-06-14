@@ -4,8 +4,12 @@
   <p>You got these question(s) wrong:</p>
     <% if !@wrong_answers.empty? %>
       <% @wrong_answers.each do |wrong_answer| %>
-        <div><%= wrong_answer.card.question %></div>
-        <div><%= wrong_answer.card.answer %></div>
+        <div> Question: <%= wrong_answer.card.question %></div>
+        <div> Correct Answer: <%= wrong_answer.card.answer %></div>
       <% end %>
     <% end %>
+
+     <form action="/users/<%= @user.id %>" method="get">
+    <input class="button"type="submit" value="back to home">
+  </form>
 </div>

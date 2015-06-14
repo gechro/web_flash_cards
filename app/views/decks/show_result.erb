@@ -1,3 +1,4 @@
+<div class="container">
 <h1>You are <%= @correct %> </h1>
 <% if @answer %>
   <p><%= @answer %></p>
@@ -5,3 +6,4 @@
 <form action = '/decks/<%=@deck.id%>/play' method = 'GET'>
   <input type = 'submit' value = 'Next'>
 </form>
+</div>

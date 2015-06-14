@@ -1,5 +1,24 @@
 <div class= 'container'>
 <h1>Welcome to our site</h1>
-  <a href='/signup'>Signup</a>
-  <a href='/login'>Login</a>
+
+<% if !authenticated? %>
+<form action='/login' method='post'>
+  <input type='email' name='user[email]' placeholder='Email'>
+  <br>
+  <br>
+  <input type='password' name='user[password]' placeholder='Password'>
+  <input type='submit' value='Login'>
+</form>
+<br>
+  <a href='/signup'><p id="new">New User?</p></a>
+  <form action="/signup" method="get">
+    <input type="submit" value="sign up">
+  </form>
+
+<% else %>
+  <form action="/logout" method="get">
+    <input class="button"type="submit" value="logout">
+  </form>
+<% end %>
+
 </div>

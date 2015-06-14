@@ -16,7 +16,7 @@ end
 
 get '/decks/:id/play' do
   deck = Deck.find(params[:id])
-
+  @user = User.find(session[:user_id])
   if deck.cards.size > session[:deck_index]
     @card = deck.cards[session[:deck_index]]
     erb :'decks/show', locals: {deck: deck}
