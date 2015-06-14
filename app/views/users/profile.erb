@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>  <%= @user.name  %></h1>
+
+  <table>
+    <th colspan="3">Decks Created</th>
+
+  </table>
+
+  <form action="/decks/new" method="get">
+    <input class="button"type="submit" value="create new deck">
+  </form>
+
+  <table>
+    <th colspan="3">Decks Played</th>
+     <% @user.rounds.each do |round| %>
+      <tr>
+        <td> <a href="/decks/<%= round.deck.id %>"><%= round.deck.name.capitalize %></a></td>
+        <td> <%= round.guesses.where(correct: true).count %> Right </td>
+        <td> <%= round.guesses.where(correct: false).count %> Wrong </td>
+    </tr>
+    <% end %>
+  </table>
+  <form  action="/categories" method="get">
+    <input class="button"type="submit" value="view more decks">
+  </form>
+</div>
