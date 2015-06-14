@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 
+# How do I run this all in the config. How do I run controllers with out a class? Do I simply run tests for routes in the global scope?
 
 describe User, :type => :feature do
   # pending "add some examples to (or delete) /Users/apprentice/Desktop/web_flash_cards/Rakefile"
@@ -55,5 +56,24 @@ describe User, :type => :feature do
   it 'should visit the home page' do
      visit '/'
      expect(page).to have_content 'Welcome to our site'
+  end
+
+  it 'should redirect to login from the home page' do
+    visit '/'
+    click_link('Login')
+    # fill_in('Name',with: 'Sheldon')
+    fill_in('Email',with: 'sheldor@hotmail.com')
+    fill_in('Password', with: '1234')
+    click_button('Login')
+    expect(page).to have_content 'Sheldon Decks'
+  end
+  it 'should post invalid user for invalid login attempts' do
+    visit '/'
+    click_link('Login')
+    # fill_in('Name',with: 'Sheldon')
+    fill_in('Email',with: 'sheldor@hotmail.com')
+    fill_in('Password', with: '4444')
+    click_button('Login')
+    expect(page).to_not have_content('Sheldon Decks')
   end
 end
