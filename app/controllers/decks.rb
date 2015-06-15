@@ -34,6 +34,10 @@ post '/decks/:id/play' do
 	session[:deck_index] += 1
 
   add_guess(card.answer == params[:answer],card)
-  @correct = "#{card.answer == params[:answer]}"
+  if card.answer == params[:answer]
+    @correct = "right"
+  else
+    @correct = "wrong"
+  end
   erb :'decks/show_result'
 end
